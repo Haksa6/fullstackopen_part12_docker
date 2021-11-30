@@ -1,0 +1,9 @@
+Script started on 2021-11-23 21:01:32+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="126" LINES="30"]
+haksa@LAPTOP-VHQD1LF3:~$ docker start -i dazzling_bardeen
+root@662878e31813:/# nano /usr/src/app/index.js
+root@662878e31813:/# exit
+exit
+haksa@LAPTOP-VHQD1LF3:~$ exit
+exit
+
+Script done on 2021-11-23 21:05:21+02:00 [COMMAND_EXIT_CODE="0"]

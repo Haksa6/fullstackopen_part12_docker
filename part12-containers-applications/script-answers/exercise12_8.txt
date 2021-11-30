@@ -1,0 +1,81 @@
+Script started on 2021-11-28 17:10:53+02:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="120" LINES="30"]
+haksa@LAPTOP-VHQD1LF3:~$ docker exec -it trusting_herschel bash
+root@b988765fb946:/# mongo
+bash: mongo: command not found
+root@b988765fb946:/# exit
+exit
+haksa@LAPTOP-VHQD1LF3:~$ docker exec -it trusting_herschel mongo
+OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "mongo": executable file not found in $PATH: unknown
+haksa@LAPTOP-VHQD1LF3:~$ docker exec -it trusting_herschel mongo -u root -p example
+OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "mongo": executable file not found in $PATH: unknown
+haksa@LAPTOP-VHQD1LF3:~$ docker exec -it todo-backend-mongo-1 bash
+root@d23e4c8256d3:/# mongo -u root -p example
+MongoDB shell version v5.0.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("24b22bb7-91d2-4346-bf1a-d3bf7c0017f6") }
+MongoDB server version: 5.0.4
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+        https://community.mongodb.com
+---
+The server generated these startup warnings when booting:
+        2021-11-28T14:23:44.881+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database
+switched to db the_database
+> show collections
+todos
+> db.todos.find({})
+{ "_id" : ObjectId("61a390e4b6990ad549d27499"), "text" : "Hello world", "done" : false }
+{ "_id" : ObjectId("61a390e4b6990ad549d2749a"), "text" : "Learn about containers", "done" : false }
+> db.todos.insertOne(
+,
+   {   <document>,
+...    {
+...       writeConcern: <document>
+...    }
+...
+...
+> db.todos.insertOne({"text": "Increase the number of tools in my toolbelt", "done": false})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61a39ec9021f434b4b7dffcd")
+}
+> db.todos.find({})
+{ "_id" : ObjectId("61a390e4b6990ad549d27499"), "text" : "Hello world", "done" : false }
+{ "_id" : ObjectId("61a390e4b6990ad549d2749a"), "text" : "Learn about containers", "done" : false }
+{ "_id" : ObjectId("61a39ec9021f434b4b7dffcd"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> exit
+bye
+root@d23e4c8256d3:/# exit
+exit
+haksa@LAPTOP-VHQD1LF3:~$ exit
+exit
+
+Script done on 2021-11-28 17:23:11+02:00 [COMMAND_EXIT_CODE="0"]

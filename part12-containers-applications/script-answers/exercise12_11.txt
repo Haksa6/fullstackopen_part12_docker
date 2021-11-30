@@ -1,0 +1,24 @@
+Script started on 2021-11-28 19:53:53+02:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="164" LINES="30"]
+haksa@LAPTOP-VHQD1LF3:~$ docker exec -it todo-backend-redis-1 bash
+root@d93334386700:/data# redis cli
+bash: redis: command not found
+root@d93334386700:/data# redis-cli KEYS count
+(empty array)
+root@d93334386700:/data# redis-cli GET count
+(nil)
+root@d93334386700:/data# redis-cli SET count 9001
+OK
+root@d93334386700:/data# redis-cli GET count
+"9001"
+root@d93334386700:/data# redis-cli GET count
+"9001"
+root@d93334386700:/data# redis-cli FLUSHDB
+OK
+root@d93334386700:/data# redis-cli GET count
+(nil)
+root@d93334386700:/data# exit
+exit
+haksa@LAPTOP-VHQD1LF3:~$ exit
+exit
+
+Script done on 2021-11-28 20:07:47+02:00 [COMMAND_EXIT_CODE="0"]
